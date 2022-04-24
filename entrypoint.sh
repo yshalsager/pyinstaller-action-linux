@@ -47,6 +47,8 @@ if [ -f $REQUIREMENTS_FILE ]; then
     /root/.pyenv/shims/pip install -r $REQUIREMENTS_FILE
 fi # [ -f requirements.txt ]
 
+cd $SRCDIR
+
 /root/.pyenv/shims/pyinstaller --clean -y --dist ./dist/linux --workpath /tmp $SPEC_FILE
 
 chown -R --reference=. ./dist/linux
