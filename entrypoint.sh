@@ -19,6 +19,8 @@ WORKDIR=${SRCDIR:-/src}
 
 SPEC_FILE=${4:-*.spec}
 
+REQUIREMENTS_FILE=${5:-*.txt}
+
 /root/.pyenv/shims/python -m pip install --upgrade pip wheel setuptools
 
 #
@@ -41,8 +43,8 @@ fi
 
 cd $WORKDIR
 
-if [ -f requirements.txt ]; then
-    /root/.pyenv/shims/pip install -r requirements.txt
+if [ -f $REQUIREMENTS_FILE ]; then
+    /root/.pyenv/shims/pip install -r $REQUIREMENTS_FILE
 fi # [ -f requirements.txt ]
 
 /root/.pyenv/shims/pyinstaller --clean -y --dist ./dist/linux --workpath /tmp $SPEC_FILE

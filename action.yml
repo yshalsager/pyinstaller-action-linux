@@ -6,7 +6,7 @@ branding:
   color: "blue"
 inputs:
   path:
-    description: "Directory containing source code & .spec file (optional requirements.txt)."
+    description: "Directory containing source code"
     required: True
     default: src
   pypi_url:
@@ -21,6 +21,10 @@ inputs:
     description: "Specify a file path for .spec file"
     required: False
     default: ""
+  requirements:
+    description: "Specify a file path for requirements.txt file"
+    required: False
+    default: "requirements.txt"
   tkinter:
     description: "Specify whether to install Tkinter or not"
     required: false
@@ -37,4 +41,5 @@ runs:
     - ${{ inputs.pypi_url }}
     - ${{ inputs.pypi_index_url }}
     - ${{ inputs.spec }}
+    - ${{ inputs.requirements }}
     - ${{ inputs.tkinter }}
