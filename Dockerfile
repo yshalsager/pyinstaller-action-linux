@@ -1,4 +1,4 @@
-FROM cdrx/pyinstaller-linux
+FROM batonogov/pyinstaller-linux
 
 COPY entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
